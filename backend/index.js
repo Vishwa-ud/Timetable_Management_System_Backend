@@ -11,6 +11,9 @@ connection();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('Server is running successfully');
+  });
 
 // Define the port for the server to listen on
 const port = process.env.PORT || 8080;
