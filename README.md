@@ -1,7 +1,7 @@
 # University Timetable Management System
 ---
 
- RESTful API for managing a university's timetable system
+ RESTful API for managing a university's timetable system Backend
 
 # Tech Stack
 React
@@ -33,7 +33,5 @@ course, time, faculty, and location.
 6. Notifications and Alerts:
 • Implement a system to notify users of timetable changes, room changes, or 
 important announcements.
-
-
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MhkFIDKy)
