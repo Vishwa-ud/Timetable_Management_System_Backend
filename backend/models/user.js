@@ -1,4 +1,4 @@
-const mongoose = reqire('mongoose');
+const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
 //validation function
