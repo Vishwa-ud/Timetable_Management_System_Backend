@@ -4,6 +4,10 @@ const app = express();
 const cors = require('cors');
 const connection = require('./db');
 
+// Import routes
+const UserRoutes = require('./routes/users');
+const AuthRoutes = require('./routes/auth');
+
 // Connect to database
 connection();
 
@@ -11,9 +15,10 @@ connection();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-  });
+//Routes
+app.use('/api/users', UserRoutes);
+app.use('/api/auth', AuthRoutes);
+
 
 // Define the port for the server to listen on
 const port = process.env.PORT || 8080;
