@@ -20,6 +20,7 @@ app.use('/api/users', UserRoutes);
 app.use('/api/auth', AuthRoutes);
 
 
+
 // Define the port for the server to listen on
 const port = process.env.PORT || 8080;
 
