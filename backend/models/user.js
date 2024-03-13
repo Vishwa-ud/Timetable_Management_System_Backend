@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     lastName:{ type: String, required: true },
     email:{ type: String, required: true },
     password:{ type: String, required: true },
+    role: { type: String, enum: ['Admin', 'Faculty', 'Student'], default: 'Student' }
 });
 
 userSchema.methods.generateAuthToken = function() {
@@ -25,7 +26,8 @@ const validate = (data) => {
         firstName: joi.string().required().label("First Name"),
         lastName: joi.string().required().label("Lirst Name"),
         email: joi.string().required().label("Email"),
-        password: passwordComplexity().required().label("Password")
+        password: passwordComplexity().required().label("Password"),
+        role: joi.string().valid('Admin', 'Faculty', 'Student').required().label("Role")
     });
     return schema.validate(data);
 }

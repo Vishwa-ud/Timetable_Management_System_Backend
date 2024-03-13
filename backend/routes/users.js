@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { User, validate } = require('../models/user');
 const bcrypt = require('bcrypt');
 
+const { authenticateUser, authorizeRole } = require('../middleware/auth');
+
 
 router.post("/", async (req, res) => {
     try{
@@ -23,4 +25,20 @@ router.post("/", async (req, res) => {
         
     }
 })
+
+
+// Define routes for Admin, Faculty, and Student based on roles
+router.get('/admin/dashboard', authenticateUser, authorizeRole(['Admin']), (req, res) => {
+    res.send({ message: 'Access Granted You are in Admin mode' });
+});
+
+router.get('/faculty/dashboard', authenticateUser, authorizeRole(['Faculty']), (req, res) => {
+    res.send({ message: 'Access Granted You are a Faculty member' });
+});
+
+router.get('/student/dashboard', authenticateUser, authorizeRole(['Student']), (req, res) => {
+    res.send({ message: 'Welcome To University Course Web' });
+});
+
+
 module.exports = router;
