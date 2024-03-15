@@ -4,11 +4,10 @@
  RESTful API for managing a university's timetable system Backend
 
 # Tech Stack
-React
-Node.js
-Express.js
-MongoDb
-JavaScript
+• Node.js
+• Express.js
+• MongoDb
+•JavaScript
 
 # Main Features
 
