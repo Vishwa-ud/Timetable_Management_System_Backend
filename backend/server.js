@@ -7,6 +7,7 @@ const connection = require('./db');
 // Import routes
 const UserRoutes = require('./routes/users');
 const AuthRoutes = require('./routes/auth');
+const coursesRouter = require('./routes/courses');
 
 // Connect to database
 connection();
@@ -18,6 +19,8 @@ app.use(cors());
 //Routes
 app.use('/api/users', UserRoutes);
 app.use('/api/auth', AuthRoutes);
+app.use('/api/courses', coursesRouter);
+
 
 
 
