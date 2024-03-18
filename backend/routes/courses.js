@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Course = require('../models/course');
 const User = require('../models/user');
+const { authenticateUser, authorizeRole } = require('../middleware/auth');
 
 // Create a new course
 router.post('/', async (req, res) => {
@@ -61,15 +62,9 @@ router.delete('/:id', getCourse, async (req, res) => {
     }
 });
 
-
 // Assign Faculty to a course
-router.post('/:id/assign-faculty', getCourse, async (req, res) => {
+router.post('/:id/assign-faculty', authenticateUser, authorizeRole(['Admin']), getCourse, async (req, res) => {
     try {
-        // Check if the user making the request is an admin
-        if (req.user.role !== 'Admin') {
-            return res.status(403).json({ message: 'Only Admins can assign Faculty to courses' });
-        }
-
         // Validate the faculty option against predefined list
         const predefinedFaculties = ['Computing', 'Business', 'Engineering'];
         if (!predefinedFaculties.includes(req.body.faculty)) {
