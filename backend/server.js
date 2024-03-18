@@ -8,6 +8,7 @@ const connection = require('./db');
 const UserRoutes = require('./routes/users');
 const AuthRoutes = require('./routes/auth');
 const coursesRouter = require('./routes/courses');
+const timetablesRouter = require('./routes/timetables');
 
 // Connect to database
 connection();
@@ -18,8 +19,12 @@ app.use(cors());
 
 //Routes
 app.use('/api/users', UserRoutes);
+
 app.use('/api/auth', AuthRoutes);
+
 app.use('/api/courses', coursesRouter);
+
+app.use('/api/timetables', timetablesRouter); 
 
 
 
