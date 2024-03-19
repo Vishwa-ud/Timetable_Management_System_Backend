@@ -1,19 +1,17 @@
 const mongoose = require('mongoose');
 
-const classSessionSchema = new mongoose.Schema({
-    course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course', required: true },
-    weekday: { type: String, enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], required: true },
-    startTime: { type: String, required: true, validate: /^[0-9]{1,2}:[0-9]{2}\s(AM|PM)$/ },
-    endTime: { type: String, required: true, validate: /^[0-9]{1,2}:[0-9]{2}\s(AM|PM)$/ },
-    facultyName: { type: String, required: true }, // Store faculty name directly
-    location: { type: String, required: true }
-});
-
 const timetableSchema = new mongoose.Schema({
-    weekNumber: { type: Number, required: true },
-    classSessions: [classSessionSchema]
+    course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course', required: true },
+    year: { type: Number, required: true },
+    semester: { type: String, required: true },
+    day: { type: String, enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], required: true },
+    type: { type: String, enum: ['Lab', 'Lecture'], required: true },
+    deliveryMethod: { type: String, enum: ['Online', 'Hybrid', 'Physical'], required: true },
+    timeSlot: { type: String, required: true }, // Format: "HH:MM - HH:MM"
+    classroom: { type: mongoose.Schema.Types.ObjectId, ref: 'Classroom', required: true }
 });
 
 const Timetable = mongoose.model('Timetable', timetableSchema);
 
 module.exports = Timetable;
+
