@@ -30,18 +30,18 @@ router.get('/:id', getClassSession, (req, res) => {
 
 // Update Class Session
 router.patch('/:id', getClassSession, async (req, res) => {
-    if (req.body.course != null) {
-        res.classSession.course = req.body.course;
-    }
-    if (req.body.weekday != null) {
-        res.classSession.weekday = req.body.weekday;
-    }
-
     try {
+        if (req.body.course != null) {
+            res.classSession.course = req.body.course;
+        }
+        if (req.body.weekday != null) {
+            res.classSession.weekday = req.body.weekday;
+        }
+
         const updatedClassSession = await res.classSession.save();
         res.status(200).json({ message: 'Class session updated successfully', updatedClassSession });
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: 'Failed to update class session', error: error.message });
     }
 });
 
@@ -51,7 +51,7 @@ router.delete('/:id', getClassSession, async (req, res) => {
         await res.classSession.deleteOne();
         res.status(200).json({ message: 'Class session deleted successfully' });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Failed to delete class session', error: error.message });
     }
 });
 
@@ -65,7 +65,7 @@ async function getClassSession(req, res, next) {
         res.classSession = classSession; // Assign the retrieved class session to res.classSession
         next();
     } catch (error) {
-        return res.status(500).json({ message: error.message });
+        return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 }
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const classSessionSchema = new mongoose.Schema({
-    course: { type: String, ref: 'Course', required: true },
+    course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course', required: true },
     weekday: { type: String, enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], required: true },
     startTime: { type: String, required: true, validate: /^[0-9]{1,2}:[0-9]{2}\s(AM|PM)$/ },
     endTime: { type: String, required: true, validate: /^[0-9]{1,2}:[0-9]{2}\s(AM|PM)$/ },
