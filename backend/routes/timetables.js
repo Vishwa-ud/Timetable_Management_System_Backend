@@ -1,72 +1,73 @@
 const express = require('express');
 const router = express.Router();
-const Timetable = require('../models/timetable'); // Import Timetable model
+const Timetable = require('../models/timetable');
 
-// Add Class Session
+// Create a timetable entry
 router.post('/', async (req, res) => {
     try {
-        const classSession = new Timetable(req.body);
-        await classSession.save();
-        res.status(201).json({ message: 'Class session added successfully', classSession });
+        const timetable = new Timetable(req.body);
+        await timetable.save();
+        res.status(201).send(timetable);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).send(error);
     }
 });
 
-// Read All Class Sessions
+// Get all timetable entries
 router.get('/', async (req, res) => {
     try {
-        const classSessions = await Timetable.find();
-        res.status(200).json(classSessions);
+        const timetables = await Timetable.find({});
+        res.send(timetables);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).send(error);
     }
 });
 
-// Read Class Session by ID
-router.get('/:id', getClassSession, (req, res) => {
-    res.status(200).json(res.classSession);
-});
-
-// Update Class Session
-router.patch('/:id', getClassSession, async (req, res) => {
+// Get timetable entry by ID
+router.get('/:id', async (req, res) => {
     try {
-        if (req.body.course != null) {
-            res.classSession.course = req.body.course;
+        const timetable = await Timetable.findById(req.params.id);
+        if (!timetable) {
+            return res.status(404).send();
         }
-        if (req.body.weekday != null) {
-            res.classSession.weekday = req.body.weekday;
-        }
-
-        const updatedClassSession = await res.classSession.save();
-        res.status(200).json({ message: 'Class session updated successfully', updatedClassSession });
+        res.send(timetable);
     } catch (error) {
-        res.status(400).json({ message: 'Failed to update class session', error: error.message });
+        res.status(500).send(error);
     }
 });
 
-// Delete Class Session
-router.delete('/:id', getClassSession, async (req, res) => {
+// Update timetable entry by ID
+router.patch('/:id', async (req, res) => {
+    const updates = Object.keys(req.body);
+    const allowedUpdates = ['course', 'year', 'semester', 'day', 'type', 'deliveryMethod', 'timeSlot', 'classroom'];
+    const isValidOperation = updates.every(update => allowedUpdates.includes(update));
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates!' });
+    }
+
     try {
-        await res.classSession.deleteOne();
-        res.status(200).json({ message: 'Class session deleted successfully' });
+        const timetable = await Timetable.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        if (!timetable) {
+            return res.status(404).send();
+        }
+        res.send(timetable);
     } catch (error) {
-        res.status(500).json({ message: 'Failed to delete class session', error: error.message });
+        res.status(400).send(error);
     }
 });
 
-// Middleware function to get a specific class session by ID
-async function getClassSession(req, res, next) {
+// Delete timetable entry by ID
+router.delete('/:id', async (req, res) => {
     try {
-        const classSession = await Timetable.findById(req.params.id);
-        if (!classSession) {
-            return res.status(404).json({ message: 'Class session not found' });
+        const timetable = await Timetable.findByIdAndDelete(req.params.id);
+        if (!timetable) {
+            return res.status(404).send();
         }
-        res.classSession = classSession; // Assign the retrieved class session to res.classSession
-        next();
+        res.send(timetable);
     } catch (error) {
-        return res.status(500).json({ message: 'Internal server error', error: error.message });
+        res.status(500).send(error);
     }
-}
+});
 
 module.exports = router;
