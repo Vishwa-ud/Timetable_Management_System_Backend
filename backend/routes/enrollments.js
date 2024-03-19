@@ -29,13 +29,14 @@ router.get('/timetable', authenticateUser, async (req, res) => {
         const courseIds = enrollments.map(enrollment => enrollment.course);
 
         // Find timetables for the enrolled courses
-        const timetables = await Timetable.find({ 'classSessions.course': { $in: courseIds } });
+        const timetables = await Timetable.find({ course: { $in: courseIds } });
 
         res.status(200).json(timetables);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
+
 
 // Route to view all student enrollments (for admins and faculty)
 router.get('/', authenticateUser, authorizeRole(['Admin', 'Faculty']), async (req, res) => {
