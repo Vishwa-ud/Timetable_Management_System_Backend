@@ -13,6 +13,7 @@ const classroomsRouter = require('./routes/classrooms');
 const resourcesRouter = require('./routes/resources');
 const bookingsRouter = require('./routes/bookings');
 const enrollmentsRouter = require('./routes/enrollments');
+const notificationRoutes = require('./routes/notifications');
 
 // Connect to database
 connection();
@@ -37,6 +38,10 @@ app.use('/api/resources', resourcesRouter);
 app.use('/api/bookings', bookingsRouter);
 
 app.use('/api/enrollments', enrollmentsRouter);
+
+app.use('/api/notifications', notificationRoutes);
+
+
 
 
 
