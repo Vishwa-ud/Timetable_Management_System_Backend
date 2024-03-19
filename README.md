@@ -3,9 +3,9 @@
 
  RESTful API for managing a university's timetable system Backend
 
-
+Register User
 ```http
-GET /api/campaigns/?api_key=12345678901234567890123456789012
+POST http://localhost:8080/api/users
 ```
 
 # Tech Stack
