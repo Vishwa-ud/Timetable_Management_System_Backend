@@ -3,6 +3,11 @@
 
  RESTful API for managing a university's timetable system Backend
 
+
+```http
+GET /api/campaigns/?api_key=12345678901234567890123456789012
+```
+
 # Tech Stack
 • Node.js
 • Express.js
