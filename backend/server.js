@@ -12,6 +12,7 @@ const timetablesRouter = require('./routes/timetables');
 const classroomsRouter = require('./routes/classrooms');
 const resourcesRouter = require('./routes/resources');
 const bookingsRouter = require('./routes/bookings');
+const enrollmentsRouter = require('./routes/enrollments');
 
 // Connect to database
 connection();
@@ -34,6 +35,8 @@ app.use('/api/classrooms', classroomsRouter);
 app.use('/api/resources', resourcesRouter);
 
 app.use('/api/bookings', bookingsRouter);
+
+app.use('/api/enrollments', enrollmentsRouter);
 
 
 
