@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Timetable = require('../models/timetable');
+const Enrollment = require('../models/enrollment');
+const Notification = require('../models/notification');
 
 // Create a timetable entry
 router.post('/', async (req, res) => {
@@ -51,11 +53,26 @@ router.patch('/:id', async (req, res) => {
         if (!timetable) {
             return res.status(404).send();
         }
+
+        // Notify enrolled students about the timetable update
+        const enrolledStudents = await Enrollment.find({ course: timetable.course });
+        const notificationPromises = enrolledStudents.map(async (enrollment) => {
+            const notification = new Notification({
+                title: 'Timetable Update',
+                message: `Timetable for ${timetable.course} has been updated.`,
+                type: 'timetable',
+                recipient: enrollment.student
+            });
+            return notification.save();
+        });
+        await Promise.all(notificationPromises);
+
         res.send(timetable);
     } catch (error) {
         res.status(400).send(error);
     }
 });
+
 
 // Delete timetable entry by ID
 router.delete('/:id', async (req, res) => {
