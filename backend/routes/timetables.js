@@ -4,87 +4,102 @@ const Timetable = require('../models/timetable');
 const Enrollment = require('../models/enrollment');
 const Notification = require('../models/notification');
 
-// Create a timetable entry
+// Create a new timetable entry
 router.post('/', async (req, res) => {
     try {
-        const timetable = new Timetable(req.body);
-        await timetable.save();
-        res.status(201).send(timetable);
-    } catch (error) {
-        res.status(400).send(error);
+        const timetableEntry = new Timetable(req.body);
+        await timetableEntry.save();
+        res.status(201).json({ message: 'Timetable entry created successfully' });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
     }
 });
 
-// Get all timetable entries
+// Read all timetable entries
 router.get('/', async (req, res) => {
     try {
-        const timetables = await Timetable.find({});
-        res.send(timetables);
-    } catch (error) {
-        res.status(500).send(error);
+        const timetableEntries = await Timetable.find();
+        res.json(timetableEntries);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 });
 
-// Get timetable entry by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const timetable = await Timetable.findById(req.params.id);
-        if (!timetable) {
-            return res.status(404).send();
-        }
-        res.send(timetable);
-    } catch (error) {
-        res.status(500).send(error);
-    }
+// Read a specific timetable entry by ID
+router.get('/:id', getTimetableEntry, (req, res) => {
+    res.json(res.timetableEntry);
 });
 
 // Update timetable entry by ID
 router.patch('/:id', async (req, res) => {
-    const updates = Object.keys(req.body);
-    const allowedUpdates = ['course', 'year', 'semester', 'day', 'type', 'deliveryMethod', 'timeSlot', 'classroom'];
-    const isValidOperation = updates.every(update => allowedUpdates.includes(update));
-
-    if (!isValidOperation) {
-        return res.status(400).send({ error: 'Invalid updates!' });
-    }
-
     try {
-        const timetable = await Timetable.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const timetable = await Timetable.findById(req.params.id);
         if (!timetable) {
-            return res.status(404).send();
+            return res.status(404).send({ error: 'Timetable not found' });
         }
 
-        // Notify enrolled students about the timetable update
-        const enrolledStudents = await Enrollment.find({ course: timetable.course });
-        const notificationPromises = enrolledStudents.map(async (enrollment) => {
-            const notification = new Notification({
-                title: 'Timetable Update',
-                message: `Timetable for ${timetable.course} has been updated.`,
-                type: 'timetable',
-                recipient: enrollment.student
+        // Update the timetable entry
+        const updatedTimetable = await Timetable.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+
+        // Find updated courses for each day
+        const updatedCoursesByDay = {};
+
+        ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].forEach(day => {
+            updatedCoursesByDay[day] = updatedTimetable[day].filter(course => {
+                const originalCourse = timetable[day].find(c => c.course.toString() === course.course.toString());
+                return !originalCourse || originalCourse.type !== course.type;
             });
-            return notification.save();
         });
+
+        // Find enrolled students for the updated courses for each day and send notifications
+        const notificationPromises = [];
+
+        for (const day in updatedCoursesByDay) {
+            const courses = updatedCoursesByDay[day];
+            for (const course of courses) {
+                const enrolledStudents = await Enrollment.find({ course: course.course }).populate('student');
+                for (const enrollment of enrolledStudents) {
+                    const notification = new Notification({
+                        title: 'Timetable Update',
+                        message: `The timetable for one of your enrolled courses has been updated for ${day}. Please check your schedule for any changes.`,
+                        type: 'timetable',
+                        recipient: enrollment.student._id
+                    });
+                    notificationPromises.push(notification.save());
+                }
+            }
+        }
+
         await Promise.all(notificationPromises);
 
-        res.send(timetable);
+        res.send(updatedTimetable);
     } catch (error) {
-        res.status(400).send(error);
+        console.error('Error updating timetable:', error);
+        res.status(500).send({ error: 'Internal server error' });
     }
 });
 
-
-// Delete timetable entry by ID
-router.delete('/:id', async (req, res) => {
+// Delete a specific timetable entry by ID
+router.delete('/:id', getTimetableEntry, async (req, res) => {
     try {
-        const timetable = await Timetable.findByIdAndDelete(req.params.id);
-        if (!timetable) {
-            return res.status(404).send();
-        }
-        res.send(timetable);
-    } catch (error) {
-        res.status(500).send(error);
+        await res.timetableEntry.remove();
+        res.json({ message: 'Timetable entry deleted' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 });
+
+async function getTimetableEntry(req, res, next) {
+    try {
+        const timetableEntry = await Timetable.findById(req.params.id);
+        if (timetableEntry == null) {
+            return res.status(404).json({ message: 'Timetable entry not found' });
+        }
+        res.timetableEntry = timetableEntry;
+        next();
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+}
 
 module.exports = router;
