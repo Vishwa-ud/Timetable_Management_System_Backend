@@ -26,11 +26,17 @@ router.get('/timetable', authenticateUser, async (req, res) => {
         const enrollments = await Enrollment.find({ student: req.user._id });
 
         // Extract course IDs from enrollments
-        const courseIds = enrollments.map(enrollment => enrollment.course);
+        const enrolledCourseIds = enrollments.map(enrollment => enrollment.course);
 
         // Find timetables for the enrolled courses
-        const timetables = await Timetable.find({ course: { $in: courseIds } });
-
+        const timetables = await Timetable.find({ 'Monday.course': { $in: enrolledCourseIds } })
+                                          .or([{ 'Tuesday.course': { $in: enrolledCourseIds } }, 
+                                                { 'Wednesday.course': { $in: enrolledCourseIds } },
+                                                { 'Thursday.course': { $in: enrolledCourseIds } },
+                                                { 'Friday.course': { $in: enrolledCourseIds } },
+                                                { 'Saturday.course': { $in: enrolledCourseIds } },
+                                                { 'Sunday.course': { $in: enrolledCourseIds } }]);
+                                                
         res.status(200).json(timetables);
     } catch (error) {
         res.status(500).json({ message: error.message });
