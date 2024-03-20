@@ -48,39 +48,33 @@ The request method is the way we distinguish what kind of action our endpoint is
 | `PUT`    | Used to replace a whole item (all fields) with new data. |
 | `DELETE` | Used to delete an item.                  |
 
-
+## User Roles and Authentication
 
 #### User Register
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `POST`   | `http://localhost:8080/api/users/`        | Create a new User Registration.         |
+
+example:
 
 #### User Login
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `POST`   | `http://localhost:8080/api/auth/`        |  User Login.                             |
 
+example:
 
 #### Role Access
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/users/admin/dashboard`    | Access Granted Admin Dashbord   |
+| `GET`    | `http://localhost:8080/api/users/faculty/dashboard`  | Access Granted Faculty Dashbord |
+| `GET`    | `http://localhost:8080/api/users/student/dashboard`  | Access Granted Student Dashbord |
 
+example:
 
 The authorized user’s token. This is used to gain access to protected endpoint.
 
@@ -92,33 +86,33 @@ The authorized user’s token. This is used to gain access to protected endpoint
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/courses/`     | Retrieve all course.                     |
+| `POST`   | `http://localhost:8080/api/courses/`     | Create a new User Registration.          |
+| `GET`    | `http://localhost:8080/api/courses/:id`  | Retrieve course by ID.                   |
+| `PATCH`  | `http://localhost:8080/api/courses/:id`  | Update course by ID.                     |
+| `DELETE` | `http://localhost:8080/api/courses/:id`  | Delete course by ID.                     |
 
 
 #### Timetables
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/timetables/`    | Retrieve all Timetables.                 |
+| `POST`   | `http://localhost:8080/api/timetables/`    | Create a new Timetable.                  |
+| `GET`    | `http://localhost:8080/api/timetables/:id` | Retrieve Timetable by ID.                |
+| `PATCH`  | `http://localhost:8080/api/timetables/:id` | Update Timetable by ID.                  |
+| `DELETE` | `http://localhost:8080/api/timetables/:id` | Delete Timetable by ID.                  |
 
 
 #### Classroom
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/classrooms/`    | Retrieve all Classrooms.               |
+| `POST`   | `http://localhost:8080/api/classrooms/`    | Create a new Classroom.                |
+| `GET`    | `http://localhost:8080/api/classrooms/:id` | Retrieve Classroom by ID.              |
+| `PATCH`  | `http://localhost:8080/api/classrooms/:id` | Update Classroom by ID.                |
+| `DELETE` | `http://localhost:8080/api/classrooms/:id` | Delete Classroom by ID.                |
 
 
 #### Resource
