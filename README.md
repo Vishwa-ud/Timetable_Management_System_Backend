@@ -3,31 +3,11 @@
 
  RESTful API for managing a university's timetable system Backend
 
-
-
-### Request methods
-
-The request method is the way we distinguish what kind of action our endpoint is being "asked" to perform. For example, `GET` pretty much gives itself. But we also have a few other methods that we use quite often.
-
-| Method   | Description                              |
-| -------- | ---------------------------------------- |
-| `GET`    | Used to retrieve a single item or a collection of items. |
-| `POST`   | Used when creating new items e.g. a new user, post, comment etc. |
-| `PATCH`  | Used to update one or more fields on an item e.g. update e-mail of user. |
-| `PUT`    | Used to replace a whole item (all fields) with new data. |
-| `DELETE` | Used to delete an item.                  |
-
-
-Register User
-```http
-POST http://localhost:8080/api/users
-```
-
 # Tech Stack
 • Node.js
 • Express.js
 • MongoDb
-•JavaScript
+• JavaScript
 
 # Main Features
 
@@ -54,5 +34,135 @@ course, time, faculty, and location.
 important announcements.
 
 ---
+
+
+### Request methods
+
+The request method is the way we distinguish what kind of action our endpoint is being "asked" to perform. For example, `GET` pretty much gives itself. But we also have a few other methods that we use quite often.
+
+| Method   | Description                              |
+| -------- | ---------------------------------------- |
+| `GET`    | Used to retrieve a single item or a collection of items. |
+| `POST`   | Used when creating new items e.g. a new user, post, comment etc. |
+| `PATCH`  | Used to update one or more fields on an item e.g. update e-mail of user. |
+| `PUT`    | Used to replace a whole item (all fields) with new data. |
+| `DELETE` | Used to delete an item.                  |
+
+
+
+#### User Register
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+#### User Login
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+#### Role Access
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+The authorized user’s token. This is used to gain access to protected endpoint.
+
+| Header key        | Description                              |
+| ----------------- | ---------------------------------------- |
+| `Authorization`   | Bearer <Token>                           |
+
+#### Course
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+#### Timetables
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+#### Classroom
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+#### Resource
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+#### Booking
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+#### Enroollment
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
+
+#### Notification
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/`                                  | Retrieve all posts.                      |
+| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
+| `GET`    | `/api/`                                  | Retrieve post #28.                       |
+| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
+| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MhkFIDKy)
