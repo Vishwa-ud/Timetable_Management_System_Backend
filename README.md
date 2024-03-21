@@ -119,44 +119,44 @@ The authorized user’s token. This is used to gain access to protected endpoint
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/resources`       | Retrieve all Resources.               |
+| `POST`   | `http://localhost:8080/api/resources`       | Create a new Resources.               |
+| `GET`    | `http://localhost:8080/api/resources/:id`   | Retrieve Resources by ID.             |
+| `PATCH`  | `http://localhost:8080/api/resources/:id`   | Update Resources by ID.               |
+| `DELETE` | `http://localhost:8080/api/resources/:id`   | Delete Resources by ID.               |
 
 
 #### Booking
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/bookings`     | Retrieve all Bookings.                   |
+| `POST`   | `http://localhost:8080/api/bookings/`    | Create a new Bookings.                   |
+| `GET`    | `http://localhost:8080/api/bookings/:id` | Retrieve Bookings by ID.                 |
+| `PATCH`  | `http://localhost:8080/api/bookings/:id` | Update Bookings by ID.                   |
+| `DELETE` | `http://localhost:8080/api/bookings/:id` | Delete Bookings by ID.                   |
 
 
 #### Enroollment
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/enrollments/` | Retrieve all Enrollments Only Admin and Faculty have Access.    |
+| `POST`   | `http://localhost:8080/api/enrollments/`  | Create a new Enrollment.          |
+| `GET`    | `http://localhost:8080/api/enrollments/timetable`| Retrieve timetable for enrolled students.|
+| `PATCH`  | `http://localhost:8080/api/enrollments/:id`| Update Enrollment By ID Permisson only for Admin and Faculty.|
+| `DELETE` | `http://localhost:8080/api/enrollments/:id`| Delete Enrollment By ID Permisson only for Admin and Faculty.|
 
 
 #### Notification
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/api/`                                  | Retrieve all posts.                      |
-| `POST`   | `http://localhost:8080/api/users`        | Create a new User Registration.          |
-| `GET`    | `/api/`                                  | Retrieve post #28.                       |
-| `PATCH`  | `/api/`                                  | Update data in post #28.                 |
-| `DELETE` | `/api/`                                  | Delete comment #1987.                    |
+| `GET`    | `http://localhost:8080/api/notifications/`| Retrieve all Notifications accessible only by Admin and Faculty.                    |
+| `POST`   | `http://localhost:8080/api/notifications/`  | Create a new Notifications accessible only by Admin and Faculty. |
+| `GET`    | `http://localhost:8080/api/notifications/:Userid`| Retrieve Notification By UserID. |
+| `PATCH`  | `http://localhost:8080/api/notifications/:id` | Update Notifications accessible only by Admin and Faculty.|
+| `DELETE` | `http://localhost:8080/api/notifications/:id` | Delete Notifications accessible only by Admin and Faculty.                   |
 
 
 ## HTTP Response Status Codes
