@@ -7,9 +7,12 @@ const { authenticateUser, authorizeRole } = require('../middleware/auth');
 // Create a new course
 router.post('/', async (req, res) => {
     try {
-        const course = new Course(req.body);
+        // Remove the faculty field from the request body if present
+        const { faculty, ...courseData } = req.body;
+
+        const course = new Course(courseData);
         await course.save();
-        res.status(201).send({message: "Course created successfully!"});
+        res.status(201).send({ message: "Course created successfully!" });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
