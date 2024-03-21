@@ -3,13 +3,29 @@
 
  RESTful API for managing a university's timetable system Backend
 
+ Table of contents
+=================
+
+<!--ts-->
+   * [Tech Stack](#tech-stack)
+   * [Aditional Dependencies](#aditional-dependencies)
+      * [Functional Requirements](#functional-requirements)
+<!--te-->
+
 # Tech Stack
 • Node.js
 • Express.js
 • MongoDb
 • JavaScript
 
-# Main Features
+# Aditional Dependencies
+
+• jsonwebtoken for session management.
+• bcrypt for  Hashing passwords.
+• Winston Logger for Log critical information for audit and diagnostic purposes.
+• Mocha with Chai Unit Testing.
+
+# Functional Requirements
 
 1. User Roles and Authentication:
 • Define multiple user roles (e.g., Admin, Faculty, Student) with different access 
@@ -82,6 +98,8 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | ----------------- | ---------------------------------------- |---------------------------------------- |
 | `Authorization`   | Bearer Token                             | After a Successful loging Generates a token with limited expire time use that as the token.|
 
+## Course Management
+
 #### Course
 
 | Method   | URL                                      | Description                              |
@@ -94,7 +112,7 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `DELETE` | `http://localhost:8080/api/courses/:id`  | Delete course by ID.                     |
 
 
-
+## Timetable Management
 
 #### Timetables
 
@@ -106,6 +124,8 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `PATCH`  | `http://localhost:8080/api/timetables/:id` | Update Timetable by ID.                  |
 | `DELETE` | `http://localhost:8080/api/timetables/:id` | Delete Timetable by ID.                  |
 
+
+## Room and Resource Booking
 
 #### Classroom
 
@@ -139,6 +159,7 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `PATCH`  | `http://localhost:8080/api/bookings/:id` | Update Bookings by ID.                   |
 | `DELETE` | `http://localhost:8080/api/bookings/:id` | Delete Bookings by ID.                   |
 
+## Student Enrollment
 
 #### Enroollment
 
@@ -150,6 +171,7 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `PATCH`  | `http://localhost:8080/api/enrollments/:id`| Update Enrollment By ID Permisson only for Admin and Faculty.|
 | `DELETE` | `http://localhost:8080/api/enrollments/:id`| Delete Enrollment By ID Permisson only for Admin and Faculty.|
 
+# Notifications and Alerts
 
 #### Notification
 
@@ -162,7 +184,7 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `DELETE` | `http://localhost:8080/api/notifications/:id` | Delete Notifications accessible only by Admin and Faculty.                   |
 
 
-## HTTP Response Status Codes
+### HTTP Response Status Codes
 
 One of the most important things in an API is how it returns response codes. Each response code means a different thing and consumers of your API rely heavily on these codes.
 
@@ -179,5 +201,11 @@ One of the most important things in an API is how it returns response codes. Eac
 | `422` | `Unprocessable entity`    | Whenever there is something wrong with the request (e.g. missing parameters, validation errors) even though the syntax is correct (ie. `400` is not warranted). |
 | `500` | `Internal server error`   | When an internal error has happened (e.g. when trying to add/update records in the database fails). |
 | `502` | `Bad Gateway`             | When a necessary third party service is down. |
+
+## Non-Functional Requirements
+
+
+## Testing
+
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MhkFIDKy)
