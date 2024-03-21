@@ -5,7 +5,7 @@ const Classroom = require('../models/classroom');
 const Resource = require('../models/resource');
 const Booking = require('../models/booking');
 
-router.post('/book', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         // Extract booking details from request body
         const { classroomID, resources, date, startTime, endTime } = req.body;
