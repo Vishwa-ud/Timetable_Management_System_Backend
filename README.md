@@ -88,9 +88,12 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `GET`    | `http://localhost:8080/api/courses/`     | Retrieve all course.                     |
 | `POST`   | `http://localhost:8080/api/courses/`     | Create a new User Registration.          |
+| `POST`   | `http://localhost:8080/api/courses/:id/assign-faculty`| Assign Faculty to Course.   |
 | `GET`    | `http://localhost:8080/api/courses/:id`  | Retrieve course by ID.                   |
 | `PATCH`  | `http://localhost:8080/api/courses/:id`  | Update course by ID.                     |
 | `DELETE` | `http://localhost:8080/api/courses/:id`  | Delete course by ID.                     |
+
+
 
 
 #### Timetables
