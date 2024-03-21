@@ -78,9 +78,9 @@ example:
 
 The authorized user’s token. This is used to gain access to protected endpoint.
 
-| Header key        | Description                              |
-| ----------------- | ---------------------------------------- |
-| `Authorization`   | Bearer <Token>                           |
+| Header key        | Value                                    | Value                                   |
+| ----------------- | ---------------------------------------- |---------------------------------------- |
+| `Authorization`   | Bearer Token                             | After a Successful loging Generates a token with limited expire time use that as the token.|
 
 #### Course
 
