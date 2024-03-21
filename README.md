@@ -7,47 +7,55 @@
 =================
 
 <!--ts-->
-   * [Tech Stack](#tech-stack)
-   * [Aditional Dependencies](#aditional-dependencies)
-      * [Functional Requirements](#functional-requirements)
+   * [Functional Requirements](#functional-requirements)
+     * [User Roles and Authentication](#user-roles-and-authentication)
+     * [Course Management](#course-management)
+     * [Timetable Management](#timetable-management)
+     * [Room and Resource Booking](#room-and-resource-booking)
+     * [Student Enrollment](#student-enrollment)
+     * [Notifications and Alerts](#notifications-and-alerts)
+   * [Non-Functional Requirements](#non-functional-requirements)
+   * [Testing](#testing)
+    
+        
 <!--te-->
 
 # Tech Stack
-• Node.js
-• Express.js
-• MongoDb
-• JavaScript
+- Node.js
+- Express.js
+- MongoDb
+- JavaScript
 
 # Aditional Dependencies
 
-• jsonwebtoken for session management.
-• bcrypt for  Hashing passwords.
-• Winston Logger for Log critical information for audit and diagnostic purposes.
-• Mocha with Chai Unit Testing.
+- jsonwebtoken for session management.
+- bcrypt for  Hashing passwords.
+- Winston Logger for Log critical information for audit and diagnostic purposes.
+- Mocha with Chai Unit Testing.
 
 # Functional Requirements
 
 1. User Roles and Authentication:
-• Define multiple user roles (e.g., Admin, Faculty, Student) with different access 
-levels.
-• Implement secure login functionality and session management using JWT.
+- Define multiple user roles (e.g., Admin, Faculty, Student) with different access levels.
+- Implement secure login functionality and session management using JWT.
+
 2. Course Management:
-• Allow CRUD operations on courses, including course name, code, description, and 
-credits.
-• Enable Admins to assign Faculty to courses.
+- Allow CRUD operations on courses, including course name, code, description, and credits.
+- Enable Admins to assign Faculty to courses.
 3. Timetable Management:
-• Facilitate the creation and modification of weekly timetables for different courses.
-• Include functionality to add, update, and delete class sessions, specifying the 
-course, time, faculty, and location.
+- Facilitate the creation and modification of weekly timetables for different courses.
+- Include functionality to add, update, and delete class sessions, specifying the course, time, faculty, and location.
+
 4. Room and Resource Booking:
-• Manage classrooms and resources (e.g., projectors, labs) availability.
-• Allow booking of rooms and resources for classes or events, ensuring no overlaps.
+- Manage classrooms and resources (e.g., projectors, labs) availability.
+- Allow booking of rooms and resources for classes or events, ensuring no overlaps.
+
 5. Student Enrollment:
-• Enable students to enroll in courses and view their timetables.
-• Allow Faculty and Admins to view and manage student enrollments in courses.
+- Enable students to enroll in courses and view their timetables.
+- Allow Faculty and Admins to view and manage student enrollments in courses.
+
 6. Notifications and Alerts:
-• Implement a system to notify users of timetable changes, room changes, or 
-important announcements.
+- Implement a system to notify users of timetable changes, room changes, or important announcements.
 
 ---
 
