@@ -215,5 +215,19 @@ One of the most important things in an API is how it returns response codes. Eac
 
 ## Testing
 
+### Unit Testing
+### Integration Testing
+
+Integration testing with Postman involves sending HTTP requests to API endpoints and verifying that the responses match the expected behavior.
+
+* Install Postman
+* Create a Collection
+* Add Requests to the Collection
+    - Choose the HTTP method (GET, POST, PUT, DELETE, etc.) that corresponds to the endpoint you want to test.
+* Define Tests
+
+### Security Testing
+### Performance Testing
+
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MhkFIDKy)
