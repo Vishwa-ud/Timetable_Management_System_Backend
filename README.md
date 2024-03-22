@@ -31,7 +31,7 @@
 - jsonwebtoken for session management.
 - bcrypt for  Hashing passwords.
 - Winston Logger for Log critical information for audit and diagnostic purposes.
-- Mocha with Chai Unit Testing.
+- Jest for Unit Testing.
 
 # Functional Requirements
 
@@ -216,6 +216,26 @@ One of the most important things in an API is how it returns response codes. Eac
 ## Testing
 
 ### Unit Testing
+* Setting up Jest for unit testing
+* Install Dependencies.
+  ```
+  npm install jest supertest --save-dev
+  npm i jest supertest cross-env
+  ```
+* Update Package.JSON.
+  ```
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --testTimeout=5000",
+    "start": "nodemon server.js"
+  },
+  ```
+* Create a Folder Name test. then create a file there called example.test.js.
+* Then Write Unit Test Cases.
+* Run Test cases
+  ```
+  npm test
+  ```
+
 ### Integration Testing
 
 Integration testing with Postman involves sending HTTP requests to API endpoints and verifying that the responses match the expected behavior.
