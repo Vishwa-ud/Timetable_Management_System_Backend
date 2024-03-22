@@ -241,12 +241,14 @@ One of the most important things in an API is how it returns response codes. Eac
 Integration testing with Postman involves sending HTTP requests to API endpoints and verifying that the responses match the expected behavior.
 
 * Install Postman
-* Create a Collection
+* Create a new Collection
 * Add Requests to the Collection
     - Choose the HTTP method (GET, POST, PUT, DELETE, etc.) that corresponds to the endpoint you want to test.
-* Define Tests
+* Define Tests in Test section Write Test Script
+* Send 
 
 ### Security Testing
+* OWASP Zap 
 ### Performance Testing
 
 
