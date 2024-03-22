@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update a classroom by ID
-router.put('/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const updatedClassroom = await Classroom.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedClassroom) {

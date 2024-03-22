@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update a resource by ID
-router.put('/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const updatedResource = await Resource.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedResource) {

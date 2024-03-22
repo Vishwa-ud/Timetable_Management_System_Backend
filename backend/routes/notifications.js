@@ -39,7 +39,7 @@ router.get('/:userId', async (req, res) => {
 });
 
 // Route to update a notification by ID (accessible only by Admin and Faculty)
-router.put('/:id', authenticateUser, authorizeRole(['Admin', 'Faculty']), async (req, res) => {
+router.patch('/:id', authenticateUser, authorizeRole(['Admin', 'Faculty']), async (req, res) => {
     try {
         const { title, message, type, recipients } = req.body;
         const notification = await Notification.findByIdAndUpdate(req.params.id, {

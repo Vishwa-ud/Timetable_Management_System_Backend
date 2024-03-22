@@ -82,7 +82,7 @@ router.patch('/:id', async (req, res) => {
 // Delete a specific timetable entry by ID
 router.delete('/:id', getTimetableEntry, async (req, res) => {
     try {
-        await res.timetableEntry.remove();
+        await Timetable.findByIdAndDelete(req.params.id);
         res.json({ message: 'Timetable entry deleted' });
     } catch (err) {
         res.status(500).json({ message: err.message });

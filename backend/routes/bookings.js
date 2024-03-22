@@ -104,7 +104,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update booking by ID
-router.put('/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         // Extract updated booking details from request body
         const { classroomID, resources, date, startTime, endTime } = req.body;
