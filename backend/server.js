@@ -23,23 +23,23 @@ app.use(express.json());
 app.use(cors());
 
 //Routes
-app.use('/api/users', UserRoutes);
+app.use('/api/v1/users', UserRoutes);
 
-app.use('/api/auth', AuthRoutes);
+app.use('/api/v1/auth', AuthRoutes);
 
-app.use('/api/courses', coursesRouter);
+app.use('/api/v1/courses', coursesRouter);
 
-app.use('/api/timetables', timetablesRouter); 
+app.use('/api/v1/timetables', timetablesRouter); 
 
-app.use('/api/classrooms', classroomsRouter);
+app.use('/api/v1/classrooms', classroomsRouter);
 
-app.use('/api/resources', resourcesRouter);
+app.use('/api/v1/resources', resourcesRouter);
 
-app.use('/api/bookings', bookingsRouter);
+app.use('/api/v1/bookings', bookingsRouter);
 
-app.use('/api/enrollments', enrollmentsRouter);
+app.use('/api/v1/enrollments', enrollmentsRouter);
 
-app.use('/api/notifications', notificationRoutes);
+app.use('/api/v1/notifications', notificationRoutes);
 
 
 
