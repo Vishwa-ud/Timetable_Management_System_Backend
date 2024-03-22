@@ -78,7 +78,7 @@ The request method is the way we distinguish what kind of action our endpoint is
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `POST`   | `http://localhost:8080/api/users/`        | Create a new User Registration.         |
+| `POST`   | `http://localhost:8080/api/v1/users/`        | Create a new User Registration.         |
 
 example:
 
@@ -86,7 +86,7 @@ example:
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `POST`   | `http://localhost:8080/api/auth/`        |  User Login.                             |
+| `POST`   | `http://localhost:8080/api/v1/auth/`        |  User Login.                             |
 
 example:
 
@@ -94,9 +94,9 @@ example:
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/users/admin/dashboard`    | Access Granted Admin Dashbord   |
-| `GET`    | `http://localhost:8080/api/users/faculty/dashboard`  | Access Granted Faculty Dashbord |
-| `GET`    | `http://localhost:8080/api/users/student/dashboard`  | Access Granted Student Dashbord |
+| `GET`    | `http://localhost:8080/api/v1/users/admin/dashboard`    | Access Granted Admin Dashbord   |
+| `GET`    | `http://localhost:8080/api/v1/users/faculty/dashboard`  | Access Granted Faculty Dashbord |
+| `GET`    | `http://localhost:8080/api/v1/users/student/dashboard`  | Access Granted Student Dashbord |
 
 example:
 
@@ -112,12 +112,12 @@ The authorized user’s token. This is used to gain access to protected endpoint
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/courses/`     | Retrieve all course.                     |
-| `POST`   | `http://localhost:8080/api/courses/`     | Create a new User Registration.          |
-| `POST`   | `http://localhost:8080/api/courses/:id/assign-faculty`| Assign Faculty to Course.   |
-| `GET`    | `http://localhost:8080/api/courses/:id`  | Retrieve course by ID.                   |
-| `PATCH`  | `http://localhost:8080/api/courses/:id`  | Update course by ID.                     |
-| `DELETE` | `http://localhost:8080/api/courses/:id`  | Delete course by ID.                     |
+| `GET`    | `http://localhost:8080/api/v1/courses/`     | Retrieve all course.                     |
+| `POST`   | `http://localhost:8080/api/v1/courses/`     | Create a new User Registration.          |
+| `POST`   | `http://localhost:8080/api/v1/courses/:id/assign-faculty`| Assign Faculty to Course.   |
+| `GET`    | `http://localhost:8080/api/v1/courses/:id`  | Retrieve course by ID.                   |
+| `PATCH`  | `http://localhost:8080/api/v1/courses/:id`  | Update course by ID.                     |
+| `DELETE` | `http://localhost:8080/api/v1/courses/:id`  | Delete course by ID.                     |
 
 
 ## Timetable Management
@@ -126,11 +126,11 @@ The authorized user’s token. This is used to gain access to protected endpoint
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/timetables/`    | Retrieve all Timetables.                 |
-| `POST`   | `http://localhost:8080/api/timetables/`    | Create a new Timetable.                  |
-| `GET`    | `http://localhost:8080/api/timetables/:id` | Retrieve Timetable by ID.                |
-| `PATCH`  | `http://localhost:8080/api/timetables/:id` | Update Timetable by ID.                  |
-| `DELETE` | `http://localhost:8080/api/timetables/:id` | Delete Timetable by ID.                  |
+| `GET`    | `http://localhost:8080/api/v1/timetables/`    | Retrieve all Timetables.                 |
+| `POST`   | `http://localhost:8080/api/v1/timetables/`    | Create a new Timetable.                  |
+| `GET`    | `http://localhost:8080/api/v1/timetables/:id` | Retrieve Timetable by ID.                |
+| `PATCH`  | `http://localhost:8080/api/v1/timetables/:id` | Update Timetable by ID.                  |
+| `DELETE` | `http://localhost:8080/api/v1/timetables/:id` | Delete Timetable by ID.                  |
 
 
 ## Room and Resource Booking
@@ -139,33 +139,33 @@ The authorized user’s token. This is used to gain access to protected endpoint
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/classrooms/`    | Retrieve all Classrooms.               |
-| `POST`   | `http://localhost:8080/api/classrooms/`    | Create a new Classroom.                |
-| `GET`    | `http://localhost:8080/api/classrooms/:id` | Retrieve Classroom by ID.              |
-| `PATCH`  | `http://localhost:8080/api/classrooms/:id` | Update Classroom by ID.                |
-| `DELETE` | `http://localhost:8080/api/classrooms/:id` | Delete Classroom by ID.                |
+| `GET`    | `http://localhost:8080/api/v1/classrooms/`    | Retrieve all Classrooms.               |
+| `POST`   | `http://localhost:8080/api/v1/classrooms/`    | Create a new Classroom.                |
+| `GET`    | `http://localhost:8080/api/v1/classrooms/:id` | Retrieve Classroom by ID.              |
+| `PATCH`  | `http://localhost:8080/api/v1/classrooms/:id` | Update Classroom by ID.                |
+| `DELETE` | `http://localhost:8080/api/v1/classrooms/:id` | Delete Classroom by ID.                |
 
 
 #### Resource
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/resources`       | Retrieve all Resources.               |
-| `POST`   | `http://localhost:8080/api/resources`       | Create a new Resources.               |
-| `GET`    | `http://localhost:8080/api/resources/:id`   | Retrieve Resources by ID.             |
-| `PATCH`  | `http://localhost:8080/api/resources/:id`   | Update Resources by ID.               |
-| `DELETE` | `http://localhost:8080/api/resources/:id`   | Delete Resources by ID.               |
+| `GET`    | `http://localhost:8080/api/v1/resources`       | Retrieve all Resources.               |
+| `POST`   | `http://localhost:8080/api/v1/resources`       | Create a new Resources.               |
+| `GET`    | `http://localhost:8080/api/v1/resources/:id`   | Retrieve Resources by ID.             |
+| `PATCH`  | `http://localhost:8080/api/v1/resources/:id`   | Update Resources by ID.               |
+| `DELETE` | `http://localhost:8080/api/v1/resources/:id`   | Delete Resources by ID.               |
 
 
 #### Booking
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/bookings`     | Retrieve all Bookings.                   |
-| `POST`   | `http://localhost:8080/api/bookings/`    | Create a new Bookings.                   |
-| `GET`    | `http://localhost:8080/api/bookings/:id` | Retrieve Bookings by ID.                 |
-| `PATCH`  | `http://localhost:8080/api/bookings/:id` | Update Bookings by ID.                   |
-| `DELETE` | `http://localhost:8080/api/bookings/:id` | Delete Bookings by ID.                   |
+| `GET`    | `http://localhost:8080/api/v1/bookings`     | Retrieve all Bookings.                   |
+| `POST`   | `http://localhost:8080/api/v1/bookings/`    | Create a new Bookings.                   |
+| `GET`    | `http://localhost:8080/api/v1/bookings/:id` | Retrieve Bookings by ID.                 |
+| `PATCH`  | `http://localhost:8080/api/v1/bookings/:id` | Update Bookings by ID.                   |
+| `DELETE` | `http://localhost:8080/api/v1/bookings/:id` | Delete Bookings by ID.                   |
 
 ## Student Enrollment
 
@@ -173,11 +173,11 @@ The authorized user’s token. This is used to gain access to protected endpoint
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/enrollments/` | Retrieve all Enrollments Only Admin and Faculty have Access.    |
-| `POST`   | `http://localhost:8080/api/enrollments/`  | Create a new Enrollment.          |
-| `GET`    | `http://localhost:8080/api/enrollments/timetable`| Retrieve timetable for enrolled students.|
-| `PATCH`  | `http://localhost:8080/api/enrollments/:id`| Update Enrollment By ID Permisson only for Admin and Faculty.|
-| `DELETE` | `http://localhost:8080/api/enrollments/:id`| Delete Enrollment By ID Permisson only for Admin and Faculty.|
+| `GET`    | `http://localhost:8080/api/v1/enrollments/` | Retrieve all Enrollments Only Admin and Faculty have Access.    |
+| `POST`   | `http://localhost:8080/api/v1/enrollments/`  | Create a new Enrollment.          |
+| `GET`    | `http://localhost:8080/api/v1/enrollments/timetable`| Retrieve timetable for enrolled students.|
+| `PATCH`  | `http://localhost:8080/api/v1/enrollments/:id`| Update Enrollment By ID Permisson only for Admin and Faculty.|
+| `DELETE` | `http://localhost:8080/api/v1/enrollments/:id`| Delete Enrollment By ID Permisson only for Admin and Faculty.|
 
 # Notifications and Alerts
 
@@ -185,11 +185,11 @@ The authorized user’s token. This is used to gain access to protected endpoint
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `http://localhost:8080/api/notifications/`| Retrieve all Notifications accessible only by Admin and Faculty.                    |
-| `POST`   | `http://localhost:8080/api/notifications/`  | Create a new Notifications accessible only by Admin and Faculty. |
-| `GET`    | `http://localhost:8080/api/notifications/:Userid`| Retrieve Notification By UserID. |
-| `PATCH`  | `http://localhost:8080/api/notifications/:id` | Update Notifications accessible only by Admin and Faculty.|
-| `DELETE` | `http://localhost:8080/api/notifications/:id` | Delete Notifications accessible only by Admin and Faculty.                   |
+| `GET`    | `http://localhost:8080/api/v1/notifications/`| Retrieve all Notifications accessible only by Admin and Faculty.                    |
+| `POST`   | `http://localhost:8080/api/v1/notifications/`  | Create a new Notifications accessible only by Admin and Faculty. |
+| `GET`    | `http://localhost:8080/api/v1/notifications/:Userid`| Retrieve Notification By UserID. |
+| `PATCH`  | `http://localhost:8080/api/v1/notifications/:id` | Update Notifications accessible only by Admin and Faculty.|
+| `DELETE` | `http://localhost:8080/api/v1/notifications/:id` | Delete Notifications accessible only by Admin and Faculty.                   |
 
 
 ### HTTP Response Status Codes
