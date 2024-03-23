@@ -241,7 +241,7 @@ DB =mongodb+srv://vishwaud:VishUd@clusterx.tvrnmmh.mongodb.net/unittest?retryWri
 * Then Write Unit Test Cases.
 * Run Test cases
   ```
-  npm test
+  npm test filename.test.js
   ```
 
 Comprehensive unit tests covering all components.
