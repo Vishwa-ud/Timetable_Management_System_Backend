@@ -217,6 +217,10 @@ One of the most important things in an API is how it returns response codes. Eac
 
 ### Unit Testing
 * Setting up Jest for unit testing
+* updated .env for New Database for testing perpose. 
+```
+DB =mongodb+srv://vishwaud:VishUd@clusterx.tvrnmmh.mongodb.net/unittest?retryWrites=true&w=majority&appName=ClusterX
+```
 * Install Dependencies.
   ```
   npm install jest supertest --save-dev
