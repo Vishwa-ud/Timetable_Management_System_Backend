@@ -216,11 +216,15 @@ One of the most important things in an API is how it returns response codes. Eac
 ## Testing
 
 ### Unit Testing
-* Setting up Jest for unit testing
+
+Implement unit tests for individual components and functions to validate their 
+behavior in isolation.
+
 * updated .env for New Database for testing perpose. 
 ```
 DB =mongodb+srv://vishwaud:VishUd@clusterx.tvrnmmh.mongodb.net/unittest?retryWrites=true&w=majority&appName=ClusterX
 ```
+* Setting up Jest for unit testing
 * Install Dependencies.
   ```
   npm install jest supertest --save-dev
@@ -249,7 +253,7 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
 * Add Requests to the Collection
     - Choose the HTTP method (GET, POST, PUT, DELETE, etc.) that corresponds to the endpoint you want to test.
 * Define Tests in Test section Write Test Script
-* Send 
+* Send Request
 
 ### Security Testing
 * OWASP Zap 
