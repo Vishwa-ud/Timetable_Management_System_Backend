@@ -244,6 +244,48 @@ DB =mongodb+srv://vishwaud:VishUd@clusterx.tvrnmmh.mongodb.net/unittest?retryWri
   npm test
   ```
 
+Comprehensive unit tests covering all components.
+
+Register User
+
+![User](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/92cbd9e9-4b69-4903-871b-4df24e91f1f3)
+
+Login User
+
+![AuthPNG](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/c73c6071-1208-4297-9e9e-22b77f44790d)
+
+Course
+
+![Course](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/dfffdb6a-63ef-4f76-ba09-a67e093050cc)
+
+Timetable
+
+![Timetable](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/30d86fc0-e0e0-4aa4-9306-38e6ffb82d3e)
+
+Classroom
+
+![Classroom](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/3d8b8326-d2c0-47cf-a9a1-134cb2e22552)
+
+Resource
+
+![Res](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/5869bc21-8ce1-4ccb-8e62-450e254e0dd4)
+
+Bookings
+
+![Booking](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/7c1e7a28-7e7d-4480-9991-36a5b2a0dc37)
+
+Enrollments
+
+![Enrollment](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/9548307a-3079-4f59-b4c3-33690d215451)
+
+Notifications
+
+![Notification](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/7b78850e-5be2-4bd3-82eb-c0f0e140cde3)
+
+---
+
+
+
 ### Integration Testing
 
 Integration testing with Postman involves sending HTTP requests to API endpoints and verifying that the responses match the expected behavior.
