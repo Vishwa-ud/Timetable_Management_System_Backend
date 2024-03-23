@@ -24,6 +24,35 @@
         
 <!--te-->
 
+# Installation
+
+To run this project locally, follow these steps:
+
+1. Create a New Folder Open it
+
+2. Press Alt + D to select the address bar.
+
+3. Type cmd and press Enter. This will open a command prompt window with the current folder as its location. (this method will open a command prompt window with the directory set to the folder you specified, allowing you to run commands directly in that folder)
+
+4. Clone the repository to your local machine using Git:
+
+```bash
+git clone github_repo_link
+```
+5. Navigate to the project directory 
+  ```
+  cd backend
+  ```
+6. Install the project dependencies using npm.
+```
+npm i
+```
+7. run
+```
+npm start
+```
+
+---
 # Tech Stack
 - Node.js
 - Express.js
@@ -36,6 +65,9 @@
 - bcrypt for  Hashing passwords.
 - Winston Logger for Log critical information for audit and diagnostic purposes.
 - Jest for Unit Testing.
+- OWASP ZAP proxy security for testing
+- Postman API end point check and integration testing
+- artillery.io for performance testing.
 
 # Functional Requirements
 
@@ -314,6 +346,7 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
 * Define Tests in Test section Write Test Script
 * Send Request
 
+Integration Test using Postman [Link](https://pages.github.com/).
 ---
 ### Security Testing
 
