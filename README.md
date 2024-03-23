@@ -16,6 +16,10 @@
      * [Notifications and Alerts](#notifications-and-alerts)
    * [Non-Functional Requirements](#non-functional-requirements)
    * [Testing](#testing)
+      * [Unit Testing](#unit-testing)
+      * [Integration Testing ](#integration-testing)
+      * [Security Testing](#security-testing)
+      * [Performance Testing](#performance-testing)
     
         
 <!--te-->
@@ -210,7 +214,22 @@ One of the most important things in an API is how it returns response codes. Eac
 | `500` | `Internal server error`   | When an internal error has happened (e.g. when trying to add/update records in the database fails). |
 | `502` | `Bad Gateway`             | When a necessary third party service is down. |
 
+---
 ## Non-Functional Requirements
+
+1. Security
+   - hashing passwords using bcrypt
+   - When store passwords in a database, it's important to store them securely to prevent unauthorized access. Simply storing passwords in plain text is a significant security risk because if the database is compromised, all passwords would be exposed.
+   -  using bcrypt to hash it along with a random salt, and storing the resulting hash and salt securely in a database.
+     
+![pwd hasing](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0509b0a8-e601-4e16-9c95-552351816133)
+
+2. Database Design.
+
+![Db](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/874d4863-0c40-4f42-b556-92358c91f4f9)
+
+3. Code Quality and Documentation.
+4. Error Handling and Logging Used Winston logger to Log critical information for audit and diagnostic purposes.
 
 ---
 ## Testing
@@ -319,30 +338,45 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
   - ZAP allows you to generate reports summarizing the findings of your security testing.
   - Go to the "Report" tab.
 
+![Security](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/4015dc89-b096-42ef-a8e5-9c32ebb17098)
 
 
 ---
 ### Performance Testing
-Install Atrillert.io
+* Install Atrillert.io
 
 ```
 npm install -g artillery
 ```
-
-example: run performance test
+* sample test:
+```
+config:
+  target: http://localhost:8080
+  phases:
+    - duration: 20
+      arrivalRate: 5
+      name: Startup phase
+scenarios:
+  - flow:
+    - get:
+        url: "/api/v1/courses"
+```
+* example: run performance test
 ```
 npx artillery run performance/demo_api_load.yml
 ```
-Generate report 
+* Generate report 
 ```
 npx artillery run performance/demo_api_load.yml --output performance/report.json
 
 ```
-HTML Format
+* HTML Format
 ```
 npx artillery report performance/report.json --output performance/report.html
 
 ```
+![Pref1](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/3bb3d112-44e8-4850-b163-4e437a22ff7d)
 
+---
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MhkFIDKy)
