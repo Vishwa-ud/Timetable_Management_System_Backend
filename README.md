@@ -297,10 +297,52 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
 
 ---
 ### Security Testing
+
 * OWASP Zap
+
+1. Start OWASP ZAP on your system.
+2. Configure ZAP Proxy:
+  - Navigate to the "Tools" menu and select "Options."
+  - Under the "Local Proxy" section, note the IP address and port number where ZAP is listening for proxy requests set localhost 8081.
+3. Configure Postman file Settings (ctrl + comma) Proxy use coustom proxy configaration localhost 8081.
+4. Explore APIs Send request from postman.
+  - Access the APIs you want to test using postman.
+5. Spider the APIs
+  - In ZAP, go to the "Spider" tab.
+  - Enter the base URL of the APIs and click "Start Scan.".
+6. Active Scan:
+  - After spidering is complete, go to the "Active Scan" tab.
+  - Click on "Start Scan" to begin the active scanning process.
+7. Review Scan Results:
+  - Once the scan is complete, navigate to the "Alerts" tab.
+8. Generate Reports:
+  - ZAP allows you to generate reports summarizing the findings of your security testing.
+  - Go to the "Report" tab.
+
+
 
 ---
 ### Performance Testing
+Install Atrillert.io
+
+```
+npm install -g artillery
+```
+
+example: run performance test
+```
+npx artillery run performance/demo_api_load.yml
+```
+Generate report 
+```
+npx artillery run performance/demo_api_load.yml --output performance/report.json
+
+```
+HTML Format
+```
+npx artillery report performance/report.json --output performance/report.html
+
+```
 
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MhkFIDKy)
