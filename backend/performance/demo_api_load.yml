@@ -1,0 +1,17 @@
+config:
+  target: "http://localhost:8080"  # Replace this with the URL of your Express.js backend
+  phases:
+    - duration: 60  # Duration of the test in seconds
+      arrivalRate: 5  # Number of virtual users to start per second
+
+scenarios:
+  - flow:
+      - post:
+          url: "/api/v1/courses"
+          json:
+            name: "Test Course"
+            code: "TEST101"
+            description: "Test Description"
+            credits: 3
+      - get:
+          url: "/api/v1/courses"
