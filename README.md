@@ -212,7 +212,7 @@ One of the most important things in an API is how it returns response codes. Eac
 
 ## Non-Functional Requirements
 
-
+---
 ## Testing
 
 ### Unit Testing
@@ -284,8 +284,6 @@ Notifications
 
 ---
 
-
-
 ### Integration Testing
 
 Integration testing with Postman involves sending HTTP requests to API endpoints and verifying that the responses match the expected behavior.
@@ -297,8 +295,11 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
 * Define Tests in Test section Write Test Script
 * Send Request
 
+---
 ### Security Testing
-* OWASP Zap 
+* OWASP Zap
+
+---
 ### Performance Testing
 
 
