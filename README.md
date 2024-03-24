@@ -288,9 +288,14 @@ One of the most important things in an API is how it returns response codes. Eac
   - Easy Integration: Quick setup with Express.js for immediate security boosts.
   - Ongoing Updates: Actively maintained for continuous protection against evolving threats.
 
-  Before Adding Helmet js
+  * Before Adding Helmet js
+  
+![Before](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/135c77ab-8b5d-4ac7-b0a0-55291ea04417)
 
-  After Adding Helmet js
+  * After Adding Helmet js
+
+![imgonline-com-ua-twotoone-cnemNsicFYA0v](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/a2d38279-ba20-4e69-9509-2b19c6abc36f)
+
    
      
 ![pwd hasing](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0509b0a8-e601-4e16-9c95-552351816133)
@@ -448,7 +453,7 @@ npx artillery run performance/demo_api_load.yml --output performance/report.json
 npx artillery report performance/report.json --output performance/report.html
 ```
 * Performance test by Artillery
-* 
+  
 ![Pref1](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/3bb3d112-44e8-4850-b163-4e437a22ff7d)
 
 * Performance test by postman.
