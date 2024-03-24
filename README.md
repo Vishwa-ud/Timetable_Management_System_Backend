@@ -66,6 +66,7 @@ npm start
 - bcrypt for  Hashing passwords.
 - Winston Logger for Log critical information for audit and diagnostic purposes.
 - Jest for Unit Testing.
+- Helmet js helps secure Express apps by setting HTTP response headers.
 - OWASP ZAP proxy security for testing
 - Postman API end point check and integration testing
 - artillery.io for performance testing.
@@ -271,6 +272,8 @@ One of the most important things in an API is how it returns response codes. Eac
    - hashing passwords using bcrypt
    - When store passwords in a database, it's important to store them securely to prevent unauthorized access. Simply storing passwords in plain text is a significant security risk because if the database is compromised, all passwords would be exposed.
    -  using bcrypt to hash it along with a random salt, and storing the resulting hash and salt securely in a database.
+   - Helmet js helps secure Express apps by setting HTTP response headers.
+    - By adding app.use(helmet()), Helmet.js is now applied as middleware to  Express application. This will automatically set various HTTP headers to secure  application against common vulnerabilities, such as Cross-Site Scripting (XSS), Clickjacking, and other. 
      
 ![pwd hasing](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0509b0a8-e601-4e16-9c95-552351816133)
 
@@ -364,7 +367,8 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
 * Define Tests in Test section Write Test Script
 * Send Request
 
-Integration Test using Postman [Link](https://documenter.getpostman.com/view/29310374/2sA35BbPtb).
+integration Test using Postman [Link to document](https://documenter.getpostman.com/view/29310374/2sA35BbPtb).
+
 ---
 ### Security Testing
 
@@ -425,11 +429,11 @@ npx artillery run performance/demo_api_load.yml --output performance/report.json
 ```
 npx artillery report performance/report.json --output performance/report.html
 ```
-* Performance by Artillery
+* Performance test by Artillery
 * 
 ![Pref1](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/3bb3d112-44e8-4850-b163-4e437a22ff7d)
 
-* Performance by postman.
+* Performance test by postman.
 
 ![Profomence test](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0b996361-3e59-4964-b192-8c803f29d2e9)
 

@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const connection = require('./db');
+const helmet = require('helmet');
 
 // Import routes
 const UserRoutes = require('./routes/users');
@@ -21,6 +22,7 @@ connection();
 // Middleware setup
 app.use(express.json());
 app.use(cors());
+app.use(helmet()); 
 
 //Routes
 app.use('/api/v1/users', UserRoutes);
