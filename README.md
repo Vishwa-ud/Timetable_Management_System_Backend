@@ -116,7 +116,6 @@ The request method is the way we distinguish what kind of action our endpoint is
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `POST`   | `http://localhost:8080/api/v1/users/`        | Create a new User Registration.         |
 
-example:
 
 #### User Login
 
@@ -124,7 +123,6 @@ example:
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `POST`   | `http://localhost:8080/api/v1/auth/`        |  User Login.                             |
 
-example:
 
 #### Role Access
 
@@ -134,7 +132,6 @@ example:
 | `GET`    | `http://localhost:8080/api/v1/users/faculty/dashboard`  | Access Granted Faculty Dashbord |
 | `GET`    | `http://localhost:8080/api/v1/users/student/dashboard`  | Access Granted Student Dashbord |
 
-example:
 
 The authorized user’s token. This is used to gain access to protected endpoint.
 
@@ -346,7 +343,7 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
 * Define Tests in Test section Write Test Script
 * Send Request
 
-Integration Test using Postman [Link](https://pages.github.com/).
+Integration Test using Postman [Link](https://documenter.getpostman.com/view/29310374/2sA35BbPtb).
 ---
 ### Security Testing
 
