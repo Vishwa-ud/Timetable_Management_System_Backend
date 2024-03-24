@@ -21,7 +21,11 @@ connection();
 
 // Middleware setup
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+    origin: 'http://localhost:8080' // Allow requests from localhost:8080
+  }));
+
 app.use(helmet()); 
 
 //Routes
