@@ -387,10 +387,14 @@ Integration testing with Postman involves sending HTTP requests to API endpoints
 * Create a new Collection
 * Add Requests to the Collection
     - Choose the HTTP method (GET, POST, PUT, DELETE, etc.) that corresponds to the endpoint you want to test.
-* Define Tests in Test section Write Test Script
-* Send Request
+* Define Tests in Test section Write Test Script.
+* go to collection then run tab.
+* Run Integration Tests
 
 integration Test using Postman [Link to document](https://documenter.getpostman.com/view/29310374/2sA35BbPtb).
+
+![Capture2](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/f0af3fd2-66d9-4a49-ae62-9bebfce6cc0d)
+
 
 ---
 ### Security Testing
@@ -416,7 +420,8 @@ integration Test using Postman [Link to document](https://documenter.getpostman.
   - ZAP allows you to generate reports summarizing the findings of your security testing.
   - Go to the "Report" tab.
 
-![Security](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/4015dc89-b096-42ef-a8e5-9c32ebb17098)
+
+![security final ](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/becda707-4475-4c4e-b3f6-d3d04ef5af88)
 
 
 ---
