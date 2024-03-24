@@ -269,11 +269,29 @@ One of the most important things in an API is how it returns response codes. Eac
 ## Non-Functional Requirements
 
 1. Security
+
    - hashing passwords using bcrypt
    - When store passwords in a database, it's important to store them securely to prevent unauthorized access. Simply storing passwords in plain text is a significant security risk because if the database is compromised, all passwords would be exposed.
    -  using bcrypt to hash it along with a random salt, and storing the resulting hash and salt securely in a database.
-   - Helmet js helps secure Express apps by setting HTTP response headers.
+
+  * Helmet Js
+    - Helmet js helps secure Express apps by setting HTTP response headers.
     - By adding app.use(helmet()), Helmet.js is now applied as middleware to  Express application. This will automatically set various HTTP headers to secure  application against common vulnerabilities, such as Cross-Site Scripting (XSS), Clickjacking, and other. 
+
+  - Enhanced Security: Shields against common API vulnerabilities.
+  - Attack Prevention: Guards against XSS, CSRF, and more.
+  - XSS & CSRF Protection: Blocks script injections and request forgery.
+  - Content Security Policy (CSP): Defines trusted content sources, preventing injection attacks.
+  - MIME Sniffing Prevention: Stops browsers from serving malicious content.
+  - Referrer Policy Control: Manages referrer information to prevent data leakage.
+  - NoCache Middleware: Ensures sensitive API responses aren't cached for data privacy.
+  - Easy Integration: Quick setup with Express.js for immediate security boosts.
+  - Ongoing Updates: Actively maintained for continuous protection against evolving threats.
+
+  Before Adding Helmet js
+
+  After Adding Helmet js
+   
      
 ![pwd hasing](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0509b0a8-e601-4e16-9c95-552351816133)
 
