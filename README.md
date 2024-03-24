@@ -117,6 +117,10 @@ The request method is the way we distinguish what kind of action our endpoint is
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `POST`   | `http://localhost:8080/api/v1/users/`        | Create a new User Registration.         |
 
+* Validate fields to ensure data integrity.
+* Password validation rules enforce requirements such as containing at least one uppercase letter, one special character, and one number. Implement password complexity validation using Joi.
+* Alert when a user with the given email already exists.
+* Implement password hashing for security purposes.
 
 #### User Login
 
@@ -124,6 +128,7 @@ The request method is the way we distinguish what kind of action our endpoint is
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `POST`   | `http://localhost:8080/api/v1/auth/`        |  User Login.                             |
 
+* Inform users of invalid email or password during login attempts."
 * After a successful login, a token will be generated with an expiration time.
 
 #### Role Access

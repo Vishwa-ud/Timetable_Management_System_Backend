@@ -3197,3 +3197,17 @@
 {"_original":{"email":"<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>","password":"P@ssw0rd"},"details":[{"context":{"invalids":["<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>"],"key":"email","label":"Email","value":"<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>"},"message":"\"Email\" must be a valid email","path":["email"],"type":"string.email"}],"level":"error","message":"Validation error: \"Email\" must be a valid email","stack":"ValidationError: \"Email\" must be a valid email","timestamp":"2024-03-23T17:46:31.810Z"}
 {"level":"info","message":"Login successful for user:","timestamp":"2024-03-23T18:02:51.848Z"}
 {"level":"info","message":"User created successfully:","timestamp":"2024-03-23T18:12:36.077Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:32:30.110Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:39:28.204Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:47:35.397Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:50:33.058Z"}
+{"level":"info","message":"User with given email already exists:","timestamp":"2024-03-24T08:53:10.227Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:53:10.549Z"}
+{"level":"info","message":"User created successfully:","timestamp":"2024-03-24T08:53:36.697Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:53:37.028Z"}
+{"level":"info","message":"User with given email already exists:","timestamp":"2024-03-24T08:55:10.511Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:55:10.833Z"}
+{"level":"info","message":"User with given email already exists:","timestamp":"2024-03-24T08:58:31.674Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:58:32.058Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T08:59:07.390Z"}
+{"level":"info","message":"Login successful for user:","timestamp":"2024-03-24T09:15:59.804Z"}
