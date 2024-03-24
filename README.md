@@ -7,6 +7,7 @@
 =================
 
 <!--ts-->
+   * [Installation](#installation)
    * [Functional Requirements](#functional-requirements)
      * [User Roles and Authentication](#user-roles-and-authentication)
      * [Course Management](#course-management)
@@ -123,6 +124,7 @@ The request method is the way we distinguish what kind of action our endpoint is
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `POST`   | `http://localhost:8080/api/v1/auth/`        |  User Login.                             |
 
+* After a successful login, a token will be generated with an expiration time.
 
 #### Role Access
 
@@ -133,11 +135,11 @@ The request method is the way we distinguish what kind of action our endpoint is
 | `GET`    | `http://localhost:8080/api/v1/users/student/dashboard`  | Access Granted Student Dashbord |
 
 
-The authorized user’s token. This is used to gain access to protected endpoint.
+* The authorized user’s token. This is used to gain access to protected endpoint.
 
 | Header key        | Value                                    | Value                                   |
 | ----------------- | ---------------------------------------- |---------------------------------------- |
-| `Authorization`   | Bearer Token                             | After a Successful loging Generates a token with limited expire time use that as the token.|
+| `Authorization`   | Bearer GeneratedToken                           | After a Successful loging Generates a token with limited expire time use that as the token.|
 
 ## Course Management
 
@@ -152,6 +154,7 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `PATCH`  | `http://localhost:8080/api/v1/courses/:id`  | Update course by ID.                     |
 | `DELETE` | `http://localhost:8080/api/v1/courses/:id`  | Delete course by ID.                     |
 
+* To assign faculty to course login as admin, use the generated token
 
 ## Timetable Management
 
@@ -165,7 +168,9 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `PATCH`  | `http://localhost:8080/api/v1/timetables/:id` | Update Timetable by ID.                  |
 | `DELETE` | `http://localhost:8080/api/v1/timetables/:id` | Delete Timetable by ID.                  |
 
+* When time table updateed Locate enrolled students for the updated courses on a daily basis and send out notifications.
 
+  
 ## Room and Resource Booking
 
 #### Classroom
@@ -200,6 +205,12 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `PATCH`  | `http://localhost:8080/api/v1/bookings/:id` | Update Bookings by ID.                   |
 | `DELETE` | `http://localhost:8080/api/v1/bookings/:id` | Delete Bookings by ID.                   |
 
+* The classroom has a specific capacity; when assigning resources, ensure it does not exceed this capacity. Additionally, check if the classroom is already booked for the specified date and time, and verify if any of the resources are already reserved for the same date and time.
+ - Check if total resource capacity exceeds classroom capacity.
+ - Check if classroom is already booked for the specified date and time.
+ - Check if any of the resources are already booked for the specified date and time.
+
+
 ## Student Enrollment
 
 #### Enroollment
@@ -211,6 +222,9 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `GET`    | `http://localhost:8080/api/v1/enrollments/timetable`| Retrieve timetable for enrolled students.|
 | `PATCH`  | `http://localhost:8080/api/v1/enrollments/:id`| Update Enrollment By ID Permisson only for Admin and Faculty.|
 | `DELETE` | `http://localhost:8080/api/v1/enrollments/:id`| Delete Enrollment By ID Permisson only for Admin and Faculty.|
+
+* Only enrolled students have access to the timetable.
+* Faculty and admins are granted permission to view and manage student enrollments in courses
 
 # Notifications and Alerts
 
@@ -224,6 +238,8 @@ The authorized user’s token. This is used to gain access to protected endpoint
 | `PATCH`  | `http://localhost:8080/api/v1/notifications/:id` | Update Notifications accessible only by Admin and Faculty.|
 | `DELETE` | `http://localhost:8080/api/v1/notifications/:id` | Delete Notifications accessible only by Admin and Faculty.                   |
 
+* Notify users about timetable changes, room changes, or important announcements.
+* Admins and faculty members can update and delete notifications by ID.
 
 ### HTTP Response Status Codes
 
@@ -403,9 +419,15 @@ npx artillery run performance/demo_api_load.yml --output performance/report.json
 * HTML Format
 ```
 npx artillery report performance/report.json --output performance/report.html
-
 ```
+* Performance by Artillery
+* 
 ![Pref1](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/3bb3d112-44e8-4850-b163-4e437a22ff7d)
+
+* Performance by postman.
+
+![Profomence test](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0b996361-3e59-4964-b192-8c803f29d2e9)
+
 
 ---
 
