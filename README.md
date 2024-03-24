@@ -273,6 +273,8 @@ One of the most important things in an API is how it returns response codes. Eac
    - hashing passwords using bcrypt
    - When store passwords in a database, it's important to store them securely to prevent unauthorized access. Simply storing passwords in plain text is a significant security risk because if the database is compromised, all passwords would be exposed.
    -  using bcrypt to hash it along with a random salt, and storing the resulting hash and salt securely in a database.
+     
+   ![pwd hasing](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0509b0a8-e601-4e16-9c95-552351816133)
 
   * Helmet Js
     - Helmet js helps secure Express apps by setting HTTP response headers.
@@ -297,8 +299,6 @@ One of the most important things in an API is how it returns response codes. Eac
 ![imgonline-com-ua-twotoone-cnemNsicFYA0v](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/a2d38279-ba20-4e69-9509-2b19c6abc36f)
 
    
-     
-![pwd hasing](https://github.com/sliitcsse/assignment-01-Vishwa-ud/assets/94515855/0509b0a8-e601-4e16-9c95-552351816133)
 
 2. Database Design.
 
